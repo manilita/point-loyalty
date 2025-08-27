@@ -1,7 +1,20 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// import Image from "next/image";
+// import styles from "./page.module.css";
+'use client';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import Login from "./pages/Login";
 
 export default function Home() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />}/>
+        <Route path="/" element={<Login />}/>
+      </Routes>
+    </Router>
+  );
+  /*
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -92,4 +105,5 @@ export default function Home() {
       </footer>
     </div>
   );
+  */
 }
