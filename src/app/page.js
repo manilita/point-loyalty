@@ -1,16 +1,33 @@
 // import Image from "next/image";
 // import styles from "./page.module.css";
 'use client';
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
 export default function Home() {
+  
+  const [user, setUser] = useState(null); // "user" in this context will refer to the business using this service
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser))
+    }
+  }, []);
+
+  const handleLogin = (user) => {
+    setUser(user);
+  }
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />}/>
-        <Route path="/" element={<Login />}/>
+        <Route path="/Login" element={<Login onLogin={handleLogin} />}/>
+        <Route path="/Dashboard" element={<Dashboard />}/>
       </Routes>
     </Router>
   );
