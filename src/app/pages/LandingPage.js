@@ -3,7 +3,7 @@ import React from "react";
 import {useNavigate} from "react-router-dom";
 //import "../styles/LandingPage.css";
 
-const LandingPage = () => {
+function LandingPage() {
     const navigate = useNavigate();
     return (
         <div className = "landing-container">
@@ -12,9 +12,9 @@ const LandingPage = () => {
             </div>
             <div className="body">
                 <h3 className="button-heading">Login to your account</h3>
-                <button className="login-button" onClick={() => navigate("/Login")}>Login</button>
+                <button className="login-button" onClick={() => navigate("/login")}>Login</button>
                 <h3 className="button-heading">Get Started</h3>
-                <button className="signup-button" onClick={() => navigate("/SignUp")}>Sign Up</button>
+                <button className="signup-button" onClick={() => navigate("/signup")}>Sign Up</button>
             </div>
         </div>
     );
